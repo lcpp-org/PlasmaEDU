@@ -1,9 +1,9 @@
-# npre424
-NPRE 424 Numerical Methods for Plasma Physics 
+# Simple routines and implementations used for Plasma Courses at NPRE 
 
-Routines used for Plasma Courses at NPRE 
+Prof. D. Curreli
 
 Nuclear, Plasma, Radiological Engineering
+
 University of Illinois at Urbana Chamapign
 
 * Fundamentals 
@@ -28,4 +28,3 @@ University of Illinois at Urbana Chamapign
 * Equilibrium 
   - 1D MHD 
   - Grad Shafranov 
-* etc.
