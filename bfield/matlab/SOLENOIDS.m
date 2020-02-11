@@ -17,7 +17,7 @@ figureNumber = 1;
 figure( figureNumber )
 
 % 3D plot of current loops
-plot3D_currentloops( CurrentLoops, 100, figureNumber )
+pltloops( CurrentLoops, 100, figureNumber )
 
 % Grid of points for contour map of B-field isolines 
 Px =  -0.1 : 0.2/45  : 0.30;
@@ -29,7 +29,7 @@ Bnorm = zeros(size(Px,2),size(Py,2));
 for i=1:size(Px,2)
     for j=1:size(Py,2)
         P = [ Px(i); Py(j); Pz ];
-        B = bfield_currentloops( P, CurrentLoops );
+        B = bfield( P, CurrentLoops );
         Bnorm(i,j) = sqrt( B(1)*B(1) + B(2)*B(2) + B(3)*B(3) ); 
     end
 end
