@@ -1,6 +1,6 @@
 # PlasmaEDU
 
-Collection of small routines and implementations used for Plasma Courses at NPRE 
+Collection of small numerical routines and implementations used for Plasma Courses at NPRE 
 
 Prof. D. Curreli
 
