@@ -169,7 +169,7 @@ def blines(y,x, filament, current):
     direction=y[3]
     point = np.array([ [X], [Y], [Z] ])
     B     = biotsavart( filament, current, point )
-    Bnorm = np.sqrt(B[0]*B[0] + B[1]*B[1] + B[2]*B[0])
+    Bnorm = np.sqrt(B[0]*B[0] + B[1]*B[1] + B[2]*B[2])
     dY    = np.zeros(4)
     dY[0] = direction * B[0]/Bnorm
     dY[1] = direction * B[1]/Bnorm
