@@ -12,7 +12,7 @@ def main():
     y_ef = ode.euler( fun, xn, y0 )       # Forward Euler
     y_mp = ode.midpoint( fun, xn, y0 )    # Explicit Midpoint
     y_rk = ode.rk4( fun, xn, y0 )         # Runge-Kutta 4
-    y_an = xn**2 + 2.0*xn + 1.0 - 0.5*np.exp(xn) # Analytical                     # Analytical
+    y_an = xn**2 + 2.0*xn + 1.0 - 0.5*np.exp(xn) # Analytical
 
     for i in range(0,xn.size):
         print xn[i], y_an[i], y_ef[i,0], y_mp[i,0], y_rk[i,0]
