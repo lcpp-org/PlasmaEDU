@@ -17,7 +17,7 @@ def loopbrz( Ra, I0, Nturns, R, Z ):
     B0    = mu0/2.0/Ra * I0 * Nturns
     alfa  = np.absolute(R)/Ra
     beta  = Z/Ra
-    gamma = Z/R
+    gamma = Z/(R+1.0e-10)
     Q     = (1+alfa)**2 + beta**2
     ksq   = 4.0 * alfa / Q
     asq   = alfa * alfa
