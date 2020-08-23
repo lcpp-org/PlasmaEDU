@@ -12,19 +12,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 import bfield
 
-R = np.linspace(0.001,   0.1, 50 )
-Z = np.linspace( -0.05, 0.05, 50 )
+# Current Loop
+Ra    = 0.05 # [m] Loop Radius
+I0    = 100  # [A] Loop Current
+turns = 1    # [#] Number of turns
 
-loor_Ra    = 0.05
-loop_I0    = 100
-loop_turns = 1
+# R,Z Grid
+R = np.linspace(  0.0,  0.1, 50 )
+Z = np.linspace(-0.05, 0.05, 50 )
 
+# B-field magnitude
 Bnorm = np.zeros((R.size,Z.size))
-
 for i in range(0,R.size):
   for j in range(0,Z.size):
-      Br, Bz = bfield.loopbrz( loor_Ra, loop_I0, loop_turns, R[i], Z[j] )
+      Br, Bz = bfield.loopbrz( Ra,I0,turns, R[i], Z[j] )
       Bnorm[i][j] = np.sqrt( Br*Br + Bz*Bz )
+      print Br,Bz
 
 plt.figure(1)
 RR,ZZ = np.meshgrid(R,Z)
@@ -35,3 +38,10 @@ plt.ylabel('Z [m]')
 plt.title('B-field magnitude [T] of a Current Loop')
 plt.savefig('ex01_plot_loopbrz_magnitude.png',dpi=150)
 plt.show()
+
+# Note on Numpy's contourf([X, Y,] Z, [levels], **kwargs):
+# X and Y must both be 2-D with the same shape as Z
+# (e.g. created via numpy.meshgrid), or they must both
+# be 1-D such that len(X) == M is the number of columns in Z
+# and len(Y) == N is the number of rows in Z.
+#Zarray-like(N, M) The height values over which the contour is drawn.
