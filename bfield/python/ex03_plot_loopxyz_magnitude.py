@@ -12,22 +12,24 @@ import numpy as np
 import bfield
 import matplotlib.pyplot as plt
 
-# Loop
-Ra      = 0.05
-I0      = 100
-Nturns  = 1
-Center  = np.array([ 0.0, 0.0, 0.0 ])
-Uhat    = np.array([ 1.0, 0.0, 0.0 ])
+# Current Loop
+Ra = 0.05
+I0 = 100.
+Nturns = 1
+Center = np.array([0,0,0])
+Angles = np.array([90,0,0]) * np.pi/180.0
 
+# X,Y Grid
 X = np.linspace(-0.1, 0.1, 50 )
 Y = np.linspace(-0.1, 0.1, 50 )
-Bnorm = np.zeros((X.size,Y.size))
 
+# B-field magnitude
+Bnorm = np.zeros((X.size,Y.size))
 for i in range(0,X.size):
   for j in range(0,Y.size):
-      Point = np.array([ X[i], Y[j], 1e-10 ])
-      Bx,By,Bz = bfield.loopxyz( Ra,I0,Nturns,Center,Uhat, Point )
-      Bnorm[i][j] = np.sqrt( Bx*Bx + By*By + Bz*Bz )
+    Point = np.array([ X[i], Y[j], 0.0 ])
+    Bx,By,Bz = bfield.loopxyz(Ra,I0,Nturns,Center,Angles,Point)
+    Bnorm[i][j] = np.sqrt(Bx*Bx + By*By + Bz*Bz)
 
 plt.figure(1)
 XX,YY = np.meshgrid(X,Y)

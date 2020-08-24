@@ -27,7 +27,6 @@ for i in range(0,R.size):
   for j in range(0,Z.size):
       Br, Bz = bfield.loopbrz( Ra,I0,turns, R[i], Z[j] )
       Bnorm[i][j] = np.sqrt( Br*Br + Bz*Bz )
-      print Br,Bz
 
 plt.figure(1)
 RR,ZZ = np.meshgrid(R,Z)

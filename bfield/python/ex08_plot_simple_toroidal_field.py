@@ -26,19 +26,19 @@ Loops = np.zeros((Ncoils,9))
 for i in range(0,Ncoils):
   Xcenter = R0 * np.cos( phi[i] )
   Ycenter = R0 * np.sin( phi[i] )
-  Zcenter = 1e-10
-  Ux = -np.sin( phi[i] )
-  Uy =  np.cos( phi[i] )
-  Uz =  0.0
+  Zcenter = 0.0
+  Angle1  = np.pi - phi[i]
+  Angle2  = 0.0
+  Angle3  = 0.0
   Loops[i,0] = Ra
   Loops[i,1] = I0
   Loops[i,2] = Nturns
   Loops[i,3] = Xcenter
   Loops[i,4] = Ycenter
   Loops[i,5] = Zcenter
-  Loops[i,6] = Ux
-  Loops[i,7] = Uy
-  Loops[i,8] = Uz
+  Loops[i,6] = Angle1
+  Loops[i,7] = Angle2
+  Loops[i,8] = Angle3
 
 # Points of interest along the midplane
 X = np.linspace( -1, 1, 50 )
@@ -53,9 +53,9 @@ for i in range(0,X.size):
       I0     = Loops[k][1]
       Nturns = Loops[k][2]
       Center = Loops[k][3:6]
-      Uhat   = Loops[k][6:9]
+      Angles = Loops[k][6:9]
       Point = np.array([ X[i], Y[j], 1e-10 ])
-      Bx,By,Bz = bfield.loopxyz( Ra,I0,Nturns,Center,Uhat, Point )
+      Bx,By,Bz = bfield.loopxyz( Ra,I0,Nturns,Center,Angles, Point )
       Bnorm[i][j] += np.sqrt( Bx*Bx + By*By + Bz*Bz )
 
 plt.figure(1)

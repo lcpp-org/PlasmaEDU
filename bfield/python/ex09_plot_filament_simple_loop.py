@@ -14,10 +14,10 @@ import bfield
 
 # Simple Current Loop, discretized in Npoints
 Ra       = 0.05
-Center   = np.array([0, 0, 0])
-Uhat     = np.array([0, 1, 0])
+Center   = np.array([0,0,0])
+Angles   = np.array([0,0,0]) * np.pi/180.0
 Npoints  = 100
-filament = bfield.makeloop( Ra, Center, Uhat, Npoints )
+filament = bfield.makeloop( Ra, Center, Angles, Npoints )
 
 current  = 1000
 X = np.linspace(  0.0,   0.1, 20 )

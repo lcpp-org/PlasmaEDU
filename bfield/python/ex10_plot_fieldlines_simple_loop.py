@@ -16,13 +16,13 @@ import matplotlib.pyplot as plt
 # Simple Current Loop, discretized in Npoints
 Ra       = 0.05
 Center   = np.array([0, 0, 0])
-Uhat     = np.array([0, 1, 0])
-Npoints  = 20
-filament = bfield.makeloop( Ra, Center, Uhat, Npoints )
+Angles   = np.array([0, 0, 0]) * np.pi/180.0
+Npoints  = 100
+filament = bfield.makeloop( Ra, Center, Angles, Npoints )
 
 current  = 1000
-X = np.linspace(   0.0,  0.1, 20 )
-Y = np.linspace( -0.05, 0.05, 20 )
+X = np.linspace(  0.0, 0.1, 30 )
+Y = np.linspace( -0.05, 0.05, 30 )
 Z = 0.0
 Bnorm = np.zeros((X.size,Y.size))
 point = np.zeros((3,1))
@@ -44,7 +44,7 @@ plt.colorbar()
 # Now solve Field Lines
 
 # Initial position of the field line
-Nlines = 50
+Nlines = 10
 fieldlines_X0     = np.linspace( 0, Ra*0.98, Nlines )
 fieldlines_Y0     = np.linspace( 0,   0,  Nlines )
 fieldlines_Z0     =  np.linspace( 0,   0,  Nlines )
