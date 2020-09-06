@@ -10,7 +10,7 @@ me = 9.10938356e-31
 mp = 1.6726219e-27
 
 # Charge-to-mass ratio (q/m)
-qm = qe/mp
+qm = -qe/mp
 
 
 def Efield(x,y,z):
