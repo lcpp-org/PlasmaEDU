@@ -60,7 +60,7 @@ def main():
    plt.axis('equal')
    plt.xlabel('x [r_L]')
    plt.ylabel('y [r_L]')
-   plt.title('100 Larmor Gyrations')
+   plt.title(str(N_gyroperiods)+' Larmor Gyrations, '+str(N_points_per_gyroperiod)+' points/gyroperiod')
    plt.legend(loc=3)
    plt.savefig('ex04_ode_larmor_long_trajectory.png')
 
@@ -69,11 +69,10 @@ def main():
    plt.plot( time_rk/tau_L, ode.error_percent( r_L, r_rk), 'bx', label='Runge-Kutta (4th)' )
    plt.xlabel('time / tau_Larmor')
    plt.ylabel('Percent Amplitude error [%]')
-   plt.title('Percent Amplitude Error over 100 Larmor gyrations')
+   plt.title('Percent Amplitude Error over '+str(N_gyroperiods)+' Larmor gyrations')
    plt.legend(loc=2)
    plt.savefig('ex04_ode_larmor_long_error.png')
    plt.show()
-
 
 if __name__ == '__main__':
    main()
