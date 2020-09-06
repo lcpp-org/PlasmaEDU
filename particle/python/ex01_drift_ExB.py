@@ -12,7 +12,7 @@ mp = 1.6726219e-27
 def fun(t,X):
    x, y, z, vx, vy, vz = X
    # Charge-to-mass ratio (q/m)
-   qm = qe/mp
+   qm = qe/me
    # E-field [V/m]
    Ex = 0.0
    Ey = 100.0
