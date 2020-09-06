@@ -10,7 +10,7 @@ me = 9.10938356e-31
 mp = 1.6726219e-27
 
 # Charge-to-mass ratio (q/m)
-qm = -qe/mp
+qm = qe/mp
 
 
 def Efield(x,y,z):
@@ -68,7 +68,7 @@ def main():
     N_gyro = 20
 
     # Number of points per gyration
-    N_points_per_gyration = 100
+    N_points_per_gyration = 400
 
     # Time grid
     time = np.linspace( 0.0, tau_L*N_gyro, N_gyro*N_points_per_gyration )
@@ -85,7 +85,7 @@ def main():
     vz = X[:,5]
 
     # Perpendicular Kinetic Energy [eV]
-    E_kin_perp = 0.5 * me * ( vx*vx + vy*vy ) / qe
+    E_kin_perp = 0.5 * mp * ( vx*vx + vy*vy ) / qe
 
     # Magnetic field along the trajectory
     Bnorm = np.zeros(x.size)
