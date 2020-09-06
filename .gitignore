@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# pics
+*.png
+
+# MacOS specific
+.DS_Store
