@@ -68,6 +68,8 @@ def advect_space(f,c,I1,I2,J1,J2,output,scheme):
 
         elif (scheme==2):
         # Second order Upwind
+            vc = int(vc)
+            cl = int(cl)
             output[i,vl:vc] = -(1.0/2.0)*c[:cl]*(-1.0*f[i+2,vl:vc] + 4.0*f[i+1,vl:vc] - 3.0*f[i,vl:vc])
             output[i,vc:vr] = -(1.0/2.0)*c[cl:]*(3.0*f[i,vc:vr] - 4.0*f[i-1,vc:vr] + 1.0*f[i-2,vc:vr])
 
@@ -192,7 +194,7 @@ for n in range(0,Nt):
 
     # Plotting Routine (if plotting is turned on - see 'input_params.py')
     if (n % nplot == 0):
-        print n
+        print(n)
         if (plot_on == 1):
             plotting(XX,VV,X,V/Vth1,f1[I1:I2+1,J1:J2+1],E,f_initial[I1:I2+1,J1:J2+1],n,plot_save,plot_show)
 
@@ -235,11 +237,11 @@ for n in range(0,Nt):
     Enorm[n] = 0.5*np.trapz((E*E),x=X)
 
     if (np.max(Courant) >= 1.0 and cfl_space_warning == 0):
-        print 'WARNING: Spatial CFL factor = '+str(np.max(Courant))+'; may be unstable!'
+        print('WARNING: Spatial CFL factor = '+str(np.max(Courant))+'; may be unstable!')
         cfl_space_warning = 1
 
     if (np.max(CourantA) >= 1.0 and cfl_velocity_warning == 0):
-        print 'WARNING: Velocity CFL factor = '+str(np.max(CourantA))+'; may be unstable!'
+        print('WARNING: Velocity CFL factor = '+str(np.max(CourantA))+'; may be unstable!i')
         cfl_velocity_warning = 1
 
 
