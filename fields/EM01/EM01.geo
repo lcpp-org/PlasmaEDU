@@ -1,0 +1,12 @@
+Include "EM01.par";
+Point(1) = {a, 0, 0, par1};
+Point(2) = {b, 0, 0, par1};
+Point(3) = {2*b, 0, 0, par1};
+Line(3)  = {1,2};
+Line(4)  = {2,3};
+Physical Point(10) = {1};
+Physical Point(11) = {2};
+Physical Line(12) = {3};
+Physical Line(13) = {4};
+Physical Line(14) = {3,4};
+Physical Point(15) = {3};
