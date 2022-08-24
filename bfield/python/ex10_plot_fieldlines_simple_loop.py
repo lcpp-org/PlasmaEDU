@@ -56,13 +56,13 @@ for i in range(np.size(fieldlines_X0,0)):
     Y0 = np.array([ fieldlines_X0[i], fieldlines_Y0[i],fieldlines_Z0[i],fieldlines_direction[i]])
     interval = x=np.arange(0.0,fieldlines_length[i],1e-4)
     fieldlines = odeint(bfield.blines, Y0, interval, args=(filament, current) )
-    print fieldlines
+    #print fieldlines
     plt.plot( fieldlines[:,0], fieldlines[:,1], 'r-' )
     # Bottom portion
     Y0 = np.array([ fieldlines_X0[i], fieldlines_Y0[i],fieldlines_Z0[i],-fieldlines_direction[i]])
     interval = x=np.arange(0.0,fieldlines_length[i],1e-4)
     fieldlines = odeint(bfield.blines, Y0, interval, args=(filament, current) )
-    print fieldlines
+    #print fieldlines
     plt.plot( fieldlines[:,0], fieldlines[:,1], 'r-' )
 
 plt.xlabel('R [m]')
