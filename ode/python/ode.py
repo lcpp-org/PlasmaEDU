@@ -112,7 +112,7 @@ def kutta( fun, x, y0 ):
    for n in range(0, N-1):
       k1 = h * fun( x[n]       , y[n,:]                   )
       k2 = h * fun( x[n]+h/2.0 , y[n,:]+ k1/2.0           )
-      k3 = h * fun( x[n]+h/2.0 , y[n,:]+ k1*(-1.0)+k2*2.0 )
+      k3 = h * fun( x[n]+h*1.0 , y[n,:]+ k1*(-1.0)+k2*2.0 )
       y[n+1,:] = y[n,:] + k1/6.0 + k2*2.0/3.0 + k3/6.0
    return y
 
