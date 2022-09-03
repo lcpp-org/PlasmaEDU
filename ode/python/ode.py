@@ -45,10 +45,10 @@ def midpoint( fun, x, y0 ):
       y[n+1,:] = y[n,:] + 0.0*k1 + 1.0*k2
    return y
 
-# Heun 2nd order method
+# Heun 2nd order
 def heun2( fun, x, y0 ):
    '''
-    Explicit Heun 2nd order
+    Heun 2nd order
     -----------------------------
     Butcher Table:
 
@@ -68,10 +68,10 @@ def heun2( fun, x, y0 ):
       y[n+1,:] = y[n,:] + 0.5*k1 + 0.5*k2
    return y
 
-# Ralston's 2nd order method
+# Ralston's 2nd order
 def ralston2( fun, x, y0 ):
    '''
-    Explicit Ralston's 2nd order
+    Ralston's 2nd order
     -----------------------------
     Butcher Table:
 
@@ -91,10 +91,10 @@ def ralston2( fun, x, y0 ):
       y[n+1,:] = y[n,:] + 0.25*k1 + 0.75*k2
    return y
 
-# Kutta's method
+# Kutta's
 def kutta( fun, x, y0 ):
    '''
-    Kutta's method
+    Kutta's
     -----------------------------
     Butcher Table:
 
@@ -111,9 +111,59 @@ def kutta( fun, x, y0 ):
    y[0,:] = y0
    for n in range(0, N-1):
       k1 = h * fun( x[n]       , y[n,:]                   )
-      k2 = h * fun( x[n]+h/2.0 , y[n,:]+ k1/2.0           )
-      k3 = h * fun( x[n]+h*1.0 , y[n,:]+ k1*(-1.0)+k2*2.0 )
+      k2 = h * fun( x[n]+h/2.0 , y[n,:]+k1/2.0           )
+      k3 = h * fun( x[n]+h*1.0 , y[n,:]+k1*(-1.0)+k2*2.0 )
       y[n+1,:] = y[n,:] + k1/6.0 + k2*2.0/3.0 + k3/6.0
+   return y
+
+# Heun 3rd order
+def heun3( fun, x, y0 ):
+   '''
+    Heun's 3rd order
+    -----------------------------
+    Butcher Table:
+
+    0   | 0     0     0
+    1/3 | 1/3   0     0
+    2/3 | 0     2/3   0
+    -----------------------------
+        | 1/4   0     3/4
+   '''
+   N = np.size( x )
+   h = x[1] - x[0]
+   I = np.size( y0 )
+   y = np.zeros((N,I))
+   y[0,:] = y0
+   for n in range(0, N-1):
+      k1 = h * fun( x[n]           , y[n,:]             )
+      k2 = h * fun( x[n]+h/3.0     , y[n,:]+k1/3.0     )
+      k3 = h * fun( x[n]+h*2.0/3.0 , y[n,:]+k2*2.0/3.0 )
+      y[n+1,:] = y[n,:] + k1/4.0 + k3*3.0/4.0
+   return y
+
+# Ralston's 3rd order
+def ralston3( fun, x, y0 ):
+   '''
+    Ralston's 3rd order
+    -----------------------------
+    Butcher Table:
+
+    0   | 0     0     0
+    1/2 | 1/2   0     0
+    3/4 | 0     3/4   0
+    -----------------------------
+        | 2/9   1/3   4/9
+   '''
+   N = np.size( x )
+   h = x[1] - x[0]
+   I = np.size( y0 )
+   y = np.zeros((N,I))
+   y[0,:] = y0
+   for n in range(0, N-1):
+      k1 = h * fun( x[n]           , y[n,:]            )
+      k2 = h * fun( x[n]+h/2.0     , y[n,:]+k1/2.0     )
+      k3 = h * fun( x[n]+h*3.0/4.0 , y[n,:]+k2*3.0/4.0 )
+      y[n+1,:] = y[n,:] + k1*2.0/9.0 + k2/3.0 + k3*4.0/9.0
    return y
 
 # Runge-Kutta 4th order
