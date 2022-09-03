@@ -18,7 +18,7 @@ E0   = 10.0e3 # [V/m]
 freq = 1e4    # [Hz]
 
 def Efield(t,x,y,z):
-    Ex = 1e4 * np.sin(2.0*np.pi*freq * t)
+    Ex = E0 * np.sin(2.0*np.pi*freq * t)
     Ey = 0.0
     Ez = 0.0
     return Ex, Ey, Ez
