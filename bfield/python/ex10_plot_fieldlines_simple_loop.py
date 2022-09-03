@@ -14,13 +14,13 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
 # Simple Current Loop, discretized in Npoints
-Ra       = 0.05
+Ra       = 0.07
 Center   = np.array([0, 0, 0])
 Angles   = np.array([0, 0, 0]) * np.pi/180.0
 Npoints  = 100
 filament = bfield.makeloop( Ra, Center, Angles, Npoints )
 
-current  = 1000
+current  = 1500
 X = np.linspace(  0.0, 0.1, 30 )
 Y = np.linspace( -0.05, 0.05, 30 )
 Z = 0.0
@@ -44,7 +44,7 @@ plt.colorbar()
 # Now solve Field Lines
 
 # Initial position of the field line
-Nlines = 10
+Nlines = 50
 fieldlines_X0     = np.linspace( 0, Ra*0.98, Nlines )
 fieldlines_Y0     = np.linspace( 0,   0,  Nlines )
 fieldlines_Z0     =  np.linspace( 0,   0,  Nlines )
@@ -56,13 +56,13 @@ for i in range(np.size(fieldlines_X0,0)):
     Y0 = np.array([ fieldlines_X0[i], fieldlines_Y0[i],fieldlines_Z0[i],fieldlines_direction[i]])
     interval = x=np.arange(0.0,fieldlines_length[i],1e-4)
     fieldlines = odeint(bfield.blines, Y0, interval, args=(filament, current) )
-    print fieldlines
+    print(fieldlines)
     plt.plot( fieldlines[:,0], fieldlines[:,1], 'r-' )
     # Bottom portion
     Y0 = np.array([ fieldlines_X0[i], fieldlines_Y0[i],fieldlines_Z0[i],-fieldlines_direction[i]])
     interval = x=np.arange(0.0,fieldlines_length[i],1e-4)
     fieldlines = odeint(bfield.blines, Y0, interval, args=(filament, current) )
-    print fieldlines
+    print(fieldlines)
     plt.plot( fieldlines[:,0], fieldlines[:,1], 'r-' )
 
 plt.xlabel('R [m]')

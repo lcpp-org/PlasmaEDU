@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 import bfield
 
 # Current Loop
-Ra    = 0.05 # [m] Loop Radius
-I0    = 100  # [A] Loop Current
-turns = 1    # [#] Number of turns
+Ra    = 0.07 # [m] Loop Radius, originally 0.05
+I0    = 150  # [A] Loop Current, originally 100
+turns = 5    # [#] Number of turns, originally 1
 
 # R,Z Grid
 R = np.linspace(  0.0,  0.1, 50 )

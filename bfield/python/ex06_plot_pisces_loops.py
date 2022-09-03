@@ -13,11 +13,11 @@ import bfield
 import matplotlib.pyplot as plt
 
 # Loops ( Ra,I0,Nturns, Xcenter,Ycenter,Zcenter, EulerAngles1,2,3 )
-Loops = np.array([[ 0.25,2.5e4,1,  0.05,0,0, 90,0,0 ],
-                  [ 0.25,-1.0e3,1, 0.30,0,0, 90,0,0 ],
-                  [ 0.45,1.8e4,1,  0.65,0,0, 90,0,0 ],
-                  [ 0.45,2.0e4,1,  1.15,0,0, 90,0,0 ],
-                  [ 0.45,2.0e4,1,  1.65,0,0, 90,0,0 ] ])
+Loops = np.array([[ 0.25,2.5e4,5,  0.05,0,0, 90,0,0 ],
+                  [ 0.25,-1.0e3,5, 0.30,0,0, 90,0,0 ],
+                  [ 0.45,1.8e4,5,  0.65,0,0, 90,0,0 ],
+                  [ 0.45,2.0e4,5,  1.15,0,0, 90,0,0 ],
+                  [ 0.45,2.0e4,5,  1.65,0,0, 90,0,0 ] ])
 Nloops = np.size(Loops,0)
 
 X = np.linspace(  0.0, 1.7, 100 )
@@ -38,7 +38,7 @@ for i in range(0,X.size):
 
 plt.figure(1)
 plt.plot(X,Bnorm[:,1]*1e4)
-plt.ylim(250,750)
+#plt.ylim(250,750)
 plt.xlabel('Axis [m]')
 plt.ylabel('B [Gauss]')
 plt.title('B-field magnitude [T] - pisces')

@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # HIDRA geometry
-R0 = 0.72        # [m] Major Radius
+R0 = 0.5        # [m] Major Radius
 a0 = 0.19        # [m] Minor Radius
 Ra = a0 + 0.1265 # [m] Avg Coil Radius
 Ncoils = 40      # [m] Number of toroidal coils
@@ -48,7 +48,7 @@ Bnorm = np.zeros((X.size,Y.size))
 # Solve B-field
 for i in range(0,X.size):
   for j in range(0,Y.size):
-    for k in range(0,Ncoils):
+    for k in range(0,Ncoils-1):
       Ra     = Loops[k][0]
       I0     = Loops[k][1]
       Nturns = Loops[k][2]

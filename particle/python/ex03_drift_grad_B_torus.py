@@ -100,7 +100,7 @@ def main():
     plt.ylabel('y [m]')
     plt.axis('equal')
     plt.legend(loc=3)
-    plt.savefig('ex02_drift_grad_B_trajectory.png')
+    plt.savefig('ex03_drift_grad_B_trajectory.png')
     plt.show()
 
     plt.figure(2)
@@ -108,7 +108,7 @@ def main():
     plt.xlabel('R, Radius [m]')
     plt.ylabel('Z, Vertical Coordinate [m]')
     plt.axis('equal')
-    plt.savefig('ex02_drift_grad_B_vertical_drift.png')
+    plt.savefig('ex03_drift_grad_B_vertical_drift.png')
     plt.show()
 
 

@@ -15,8 +15,8 @@ d2r = np.pi/180.0
 
 # Define Loops, using the following convention
 # [ Ra,I0,Nturns, Xcenter,Ycenter,Zcenter, EulerAnglesDegrees ]
-Loops = np.array([[ 0.02,100,1,  0.04,0,0, 90,0,0 ],
-                  [ 0.02,100,1, -0.04,0,0, 90,0,0 ] ])
+Loops = np.array([[ 0.07,150,5,  0.04,0,0, 90,0,0 ],
+                  [ 0.07,150,5, -0.04,0,0, 90,0,0 ] ])
 Nloops = np.size(Loops,0)
 
 X = np.linspace( -0.1, 0.1, 100 )

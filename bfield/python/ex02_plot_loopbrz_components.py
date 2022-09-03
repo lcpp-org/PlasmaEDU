@@ -15,9 +15,9 @@ import bfield
 R = np.linspace(0.001,   0.1, 50 )
 Z = np.linspace( -0.05, 0.05, 50 )
 
-loop_I0    = 100
-loor_Ra    = 0.05
-loop_turns = 1
+loop_I0    = 150
+loor_Ra    = 0.07
+loop_turns = 5
 
 BR = np.zeros((R.size,Z.size))
 BZ = np.zeros((R.size,Z.size))

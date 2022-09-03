@@ -13,13 +13,13 @@ import matplotlib.pyplot as plt
 import bfield
 
 # Simple Current Loop, discretized in Npoints
-Ra       = 0.05
+Ra       = 0.1
 Center   = np.array([0,0,0])
 Angles   = np.array([0,0,0]) * np.pi/180.0
 Npoints  = 100
 filament = bfield.makeloop( Ra, Center, Angles, Npoints )
 
-current  = 1000
+current  = 1500
 X = np.linspace(  0.0,   0.1, 20 )
 Y = np.linspace( -0.05, 0.05, 20 )
 Z = 0.0

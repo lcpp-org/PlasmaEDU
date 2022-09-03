@@ -13,8 +13,8 @@ import bfield
 import matplotlib.pyplot as plt
 
 # Loops ( Ra,I0,Nturns, Xcenter,Ycenter,Zcenter, Ux,Uy,Uz )
-Loops = np.array([[ 0.200,100,10,  0.200,0,0, 90,0,0 ],
-                  [ 0.200,100,10, -0.200,0,0, 90,0,0 ] ])
+Loops = np.array([[ 0.200,200,10,  0.200,0,0, 90,0,0 ],
+                  [ 0.200,200,10, -0.200,0,0, 90,0,0 ] ])
 Nloops = np.size(Loops,0)
 
 X = np.linspace( -0.4, 0.4, 100 )
