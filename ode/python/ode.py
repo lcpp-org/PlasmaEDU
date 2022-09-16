@@ -258,7 +258,6 @@ def wray3( fun, x, y0 ):
       k3 = h * fun( x[n]+2.0*h/3.0  , y[n,:]+ k1/4.0 + 5.0*k2/12.0  )
       y[n+1,:] = y[n,:] + 1.0*k1/4.0 + 0.0*k2 + 3.0*k3/4.0
    return y
-
 ## HW2 Extra Credit
 # Heun 2nd order
 def heun( fun, x, y0):
