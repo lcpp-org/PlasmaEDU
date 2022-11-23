@@ -124,6 +124,14 @@ for n in range(0,nptt):
 		plt.plot(x*1000, y-273.15, 'm', linewidth = 1.0)
 	# Surface temperature
 	T_surf[n] = y[0]
+	
+# 	if (n%20)==0:
+		# Run plasma model 
+		# os.system('./zapdos -i input_file.i')
+
+		# Get solution from plasma model 
+		# q_flux = np.genfromtxt('read_total_heat_flux.csv')
+		# dT_dr = q_flux/kappa
 
 plt.xlabel('x [mm]'), plt.ylabel('T [$^\circ$C]')
 plt.grid(True)
