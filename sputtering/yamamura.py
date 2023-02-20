@@ -38,7 +38,7 @@ def yamamura(ion, target, energy_eV):
         Y (float): 
             Sputtering yield in atoms/ion
         Eth (float):
-            Sputtering threshold in eV
+            Sputtering threshold in electron-volts
     '''
     # Properties of the ion
     M1 = ion['m']
