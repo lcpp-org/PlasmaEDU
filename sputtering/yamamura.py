@@ -97,5 +97,6 @@ def yamamura(ion, target, energy_eV):
 
     # Yamamura Sputtering Yield, Eq. (15) Ref. [1] 
     SY = 0.042 * Q * alpha_star / Us * Sn/(1.0+Gamma*ke*epsE**0.3) * (1.0-np.sqrt(Eth/energy_eV))**s
+    SY = np.real(SY)
     
     return SY, Eth
