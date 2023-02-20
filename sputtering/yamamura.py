@@ -62,7 +62,7 @@ def yamamura(ion, target, energy_eV):
     # Lindhard screening length, Eq. (22) Ref. [1]
     a_L = 0.03255 / ((Z1**F23 + Z2**F23)**F12)
 
-    # Lindhard reduced energy, Eq. (22) Ref. [1]
+    # Lindhard reduced energy in the Thomas-Fermi form, Eq. (22) Ref. [1]
     epsE = 1.0/Z1/Z2 * Mr_2 * energy_eV * a_L
     sqrtE = np.sqrt(epsE)
 
