@@ -68,6 +68,6 @@ for i in range(np.size(fieldlines_X0,0)):
 plt.xlabel('R [m]')
 plt.ylabel('Z [m]')
 plt.title('B-field magnitude [T] and Fieldlines of a Current Loop')
-plt.savefig('ex09_plot_fieldlines_simple_loop.png',dpi=150)
+plt.savefig('ex10_plot_fieldlines_simple_loop.png',dpi=150)
 
 plt.show()
