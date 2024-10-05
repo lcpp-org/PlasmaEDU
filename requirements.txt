@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 python_version >= "3.0"
+=======
+>>>>>>> ad103d1 (Configuration files)
 numpy
 scipy
 matplotlib
