@@ -147,5 +147,5 @@ plot( Rx[:,0:int(Np/2)], Ry[:,0:int(Np/2)], 'ro-') # protons
 plot( Rx[:,int(Np/2):Np], Ry[:,int(Np/2):Np], 'b-') # electrons
 xlim([ 0, L ])
 ylim([ 0, L ])
-savefig('nbody_1.png',dpi=200)
+savefig('ex09_nbody_20body.png',dpi=200)
 show()

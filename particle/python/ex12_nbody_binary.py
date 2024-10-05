@@ -101,7 +101,7 @@ def main():
     # Plot results
     plot( Rx/a0, Ry/a0, 'bo-')
     axis('equal')
-    savefig('nbody_binary.png',dpi=200)
+    savefig('ex12_nbody_binary.png',dpi=200)
     show()
 
 

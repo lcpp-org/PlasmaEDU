@@ -98,7 +98,7 @@ def main():
     # Plot results
     plot( Rx, Ry, 'b.-')
     axis('equal')
-    savefig('nbody_Hatom.png',dpi=200)
+    savefig('ex10_nbody_Hatom.png',dpi=200)
     show()
 
 

@@ -150,7 +150,7 @@ def main():
     plot( Rx[:,1], Ry[:,1], 'b-')
     plot( Rx[:,2], Ry[:,2], 'k-')
     axis('equal')
-    savefig('nbody_3body.png',dpi=200)
+    savefig('ex11_nbody_3body.png',dpi=200)
     show()
 
 if __name__ == '__main__':
