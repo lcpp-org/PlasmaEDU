@@ -14,15 +14,15 @@ def takacs_error(fd,ft,dims,M):
     # dims = number of dimensions - kept general for 1D or 2D/1D1V simulations
     # M    = number of total gridpoints (i.e. in 1D1V, M = Nx * Nv )
 
-    E_tot      = sum(sum(((ft - fd))**2.))/float(M)
+    E_tot      = sum((ft - fd)**2.0)/float(M)
 
-    mean_fd   = sum(sum(fd))/float(M)
-    mean_ft   = sum(sum(ft))/float(M)
-    sigma_fd  = sum(sum((fd-mean_fd)**2.0))
-    sigma_ft  = sum(sum((ft-mean_ft)**2.0))
-    toprow    = sum(sum((fd-mean_fd)*(ft-mean_ft)))
-    botrow_d  = sum(sum((fd-mean_fd)**2.0))
-    botrow_t  = sum(sum((ft-mean_ft)**2.0))
+    mean_fd   = sum(fd)/float(M)
+    mean_ft   = sum(ft)/float(M)
+    sigma_fd  = sum((fd-mean_fd)**2.0)
+    sigma_ft  = sum((ft-mean_ft)**2.0)
+    toprow    = sum((fd-mean_fd)*(ft-mean_ft))
+    botrow_d  = sum((fd-mean_fd)**2.0)
+    botrow_t  = sum((ft-mean_ft)**2.0)
     sigma_fd  = sigma_fd/float(M)
     sigma_ft  = sigma_ft/float(M)
     sigd      = np.sqrt(sigma_fd)
