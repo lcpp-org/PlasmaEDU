@@ -28,8 +28,8 @@ tb   = 2.0*np.pi*np.sqrt(a0**3/mk)  # Bohr period
 Np = 2
 
 # Charge and Mass
-q = np.concatenate( (qe*np.ones(Np/2), -qe*np.ones(Np/2) ) )
-m = np.concatenate( (mp*np.ones(Np/2),  me*np.ones(Np/2) ) )
+q = np.concatenate( (qe*np.ones(int(Np/2)), -qe*np.ones(int(Np/2)) ) )
+m = np.concatenate( (mp*np.ones(int(Np/2)),  me*np.ones(int(Np/2)) ) )
 
 # Dynamics
 def dynamics(t,Y):
@@ -98,7 +98,7 @@ def main():
     # Plot results
     plot( Rx, Ry, 'b.-')
     axis('equal')
-    savefig('nbody_Hatom.png',dpi=200)
+    savefig('ex10_nbody_Hatom.png',dpi=200)
     show()
 
 

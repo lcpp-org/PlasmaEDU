@@ -26,23 +26,23 @@ tb   = 2.0*np.pi*np.sqrt(a0**3/mk)  # Bohr period
 Np = 20
 
 # Charge and Mass
-q = np.concatenate( (qe*np.ones(Np/2), -qe*np.ones(Np/2) ) )
-m = np.concatenate( (mp*np.ones(Np/2),  me*np.ones(Np/2) ) )
+q = np.concatenate( (qe*np.ones(int(Np/2)), -qe*np.ones(int(Np/2)) ) )
+m = np.concatenate( (mp*np.ones(int(Np/2)),  me*np.ones(int(Np/2)) ) )
 
 # Characteristic time [s]
 T = 200.0*tb #20.0*tb
-print 'T=',T,' [s]'
+print('T=',T,' [s]')
 
 # Characteristic size of the domain [m]
 L = 100.0*a0
-print 'L=',L,' [m]'
+print('L=',L,' [m]')
 
 Rx = np.random.rand(Np)*L
 Ry = np.random.rand(Np)*L
 Rz = np.random.rand(Np)*L
-Vx = np.concatenate( ( np.zeros(Np/2), np.random.rand(Np/2)*vb/18.0 ) )
-Vy = np.concatenate( ( np.zeros(Np/2), np.random.rand(Np/2)*vb/18.0 ) )
-Vz = np.concatenate( ( np.zeros(Np/2), np.random.rand(Np/2)*vb/18.0 ) )
+Vx = np.concatenate( ( np.zeros(int(Np/2)), np.random.rand(int(Np/2))*vb/18.0 ) )
+Vy = np.concatenate( ( np.zeros(int(Np/2)), np.random.rand(int(Np/2))*vb/18.0 ) )
+Vz = np.concatenate( ( np.zeros(int(Np/2)), np.random.rand(int(Np/2))*vb/18.0 ) )
 
 
 # Dynamic function, Newton-Lorentz Equation
@@ -143,9 +143,9 @@ Vy = Y[ :, 4*Np:5*Np ]
 Vz = Y[ :, 5*Np:6*Np ]
 
 # Plot
-plot( Rx[:,0:Np/2], Ry[:,0:Np/2], 'ro-') # protons
-plot( Rx[:,Np/2:Np], Ry[:,Np/2:Np], 'b-') # electrons
+plot( Rx[:,0:int(Np/2)], Ry[:,0:int(Np/2)], 'ro-') # protons
+plot( Rx[:,int(Np/2):Np], Ry[:,int(Np/2):Np], 'b-') # electrons
 xlim([ 0, L ])
 ylim([ 0, L ])
-savefig('nbody_1.png',dpi=200)
+savefig('ex09_nbody_20body.png',dpi=200)
 show()

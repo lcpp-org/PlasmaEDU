@@ -6,8 +6,10 @@
 #
 #  Crank Nicholson Scheme on the diffusion part
 
-import numpy as np, matplotlib.pyplot as plt
-import math, copy
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import copy
 
 # MATERIAL PROPERTIES
 
@@ -29,6 +31,9 @@ D      =  kappa/rho/Cp		# Thermal diffusivity  [m^2/s]
 
 BoundaryFlag = 2
 
+T_amb = 0.0
+Twall = 0.0
+dT_dr = 0.0
 if(BoundaryFlag == 1):
 	T_amb = 300
 	Twall = 800
@@ -124,17 +129,17 @@ for n in range(0,nptt):
 		plt.plot(x*1000, y-273.15, 'm', linewidth = 1.0)
 	# Surface temperature
 	T_surf[n] = y[0]
-	
+
 # 	if (n%20)==0:
-		# Run plasma model 
+		# Run plasma model
 		# os.system('./zapdos -i input_file.i')
 
-		# Get solution from plasma model 
+		# Get solution from plasma model
 		# q_flux = np.genfromtxt('read_total_heat_flux.csv')
 		# dT_dr = q_flux/kappa
 
-plt.xlabel('x [mm]'), plt.ylabel('T [$^\circ$C]')
+plt.xlabel('x [mm]')
+plt.ylabel('T [$^\circ$C]')
 plt.grid(True)
 plt.title('Temperature profile evolution')
 plt.show()
-

@@ -79,7 +79,7 @@ def main():
     Vy = np.zeros(Np)
     Vz = np.zeros(Np)
 
-    print 0.5*mp*Vx[1]*Vx[1]/qe
+    print(0.5*mp*Vx[1]*Vx[1]/qe)
 
     Y0 = np.concatenate( ( Rx, Ry, Rz, Vx, Vy, Vz ) )
 
@@ -101,7 +101,7 @@ def main():
     # Plot results
     plot( Rx/a0, Ry/a0, 'bo-')
     axis('equal')
-    savefig('nbody_binary.png',dpi=200)
+    savefig('ex12_nbody_binary.png',dpi=200)
     show()
 
 
