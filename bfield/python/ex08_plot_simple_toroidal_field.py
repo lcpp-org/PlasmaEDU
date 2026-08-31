@@ -44,6 +44,9 @@ for i in range(0,Ncoils):
 X = np.linspace( -1, 1, 50 )
 Y = np.linspace( -1, 1, 50 )
 Bnorm = np.zeros((X.size,Y.size))
+Bx_total = np.zeros((X.size,Y.size))
+By_total = np.zeros((X.size,Y.size))
+Bz_total = np.zeros((X.size,Y.size))
 
 # Solve B-field
 for i in range(0,X.size):
@@ -56,7 +59,10 @@ for i in range(0,X.size):
       Angles = Loops[k][6:9]
       Point = np.array([ X[i], Y[j], 1e-10 ])
       Bx,By,Bz = bfield.loopxyz( Ra,I0,Nturns,Center,Angles, Point )
-      Bnorm[i][j] += np.sqrt( Bx*Bx + By*By + Bz*Bz )
+      Bx_total[i][j] += Bx
+      By_total[i][j] += By
+      Bz_total[i][j] += Bz
+Bnorm = np.sqrt(Bx_total**2 + By_total**2 + Bz_total**2)
 
 plt.figure(1)
 XX,YY = np.meshgrid(X,Y)
@@ -66,14 +72,13 @@ plt.xlabel('X [m]')
 plt.ylabel('Y [m]')
 plt.title('B-field magnitude [T] - Simple Toroidal Field')
 plt.savefig('ex08_plot_simple_toroidal_field_bnorm.png',dpi=150)
-plt.show()
+plt.show(block=False)
 
 plt.figure(2)
-plt.plot(X,Bnorm[:,0]*1e4)
+plt.plot(X,Bnorm[:,25]*1e4)
 plt.xlim([R0-a0, R0+a0])
-plt.ylim([0,500])
 plt.xlabel('Radius [m]')
 plt.ylabel('B [Gauss]')
-plt.title('B-field magnitude along radius [T] - Simple Toroidal Field')
+plt.title('B-field magnitude along radius [G] - Simple Toroidal Field')
 plt.savefig('ex08_plot_simple_toroidal_field_baxis.png',dpi=150)
 plt.show()

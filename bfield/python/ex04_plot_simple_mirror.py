@@ -22,6 +22,9 @@ Nloops = np.size(Loops,0)
 X = np.linspace( -0.1, 0.1, 100 )
 Y = np.linspace( -0.1, 0.1, 100 )
 Bnorm = np.zeros((X.size,Y.size))
+Bx_total = np.zeros((X.size,Y.size))
+By_total = np.zeros((X.size,Y.size))
+Bz_total = np.zeros((X.size,Y.size))
 
 for i in range(0,X.size):
   for j in range(0,Y.size):
@@ -33,7 +36,10 @@ for i in range(0,X.size):
       EulerAnglesRadians = Loops[k][6:9] * d2r
       Point = np.array([ X[i], Y[j], 0.0 ])
       Bx,By,Bz = bfield.loopxyz(Ra,I0,Nturns,Center,EulerAnglesRadians,Point)
-      Bnorm[i][j] += np.sqrt( Bx*Bx + By*By + Bz*Bz )
+      Bx_total[i][j] += Bx
+      By_total[i][j] += By
+      Bz_total[i][j] += Bz
+Bnorm = np.sqrt(Bx_total**2 + By_total**2 + Bz_total**2)
 
 plt.figure(1)
 XX,YY = np.meshgrid(X,Y)
