@@ -21,7 +21,7 @@ I0 = 770         # [A] Current
 Nturns = 13      # [#] Number of turns on each coil
 
 # Construct the input for the 40 coils
-phi = np.linspace(0.0, 2*np.pi, Ncoils)
+phi = np.linspace(0.0, 2*np.pi, Ncoils, endpoint=False)
 Loops = np.zeros((Ncoils,9))
 for i in range(0,Ncoils):
   Xcenter = R0 * np.cos( phi[i] )
